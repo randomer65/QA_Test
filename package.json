@@ -6,7 +6,7 @@
     "http-server": "^14.1.1"
   },
   "scripts": {
-    "serve": "npx http-server -p 3000 -a 127.0.0.1 &",
+    "serve": "fuser -k 3000/tcp || true ; npx http-server -p 3000 -a 127.0.0.1 &",
     "cy:run": "npm run serve & npx cypress run --config baseUrl=http://localhost:3000"
   },
   "description": "This is a counter that should only display positive numbers, it should increment and decrement when pressed accordingly",
