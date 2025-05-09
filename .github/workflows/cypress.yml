@@ -20,7 +20,10 @@ jobs:
           node-version: 18
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
+
+      - name: Install Cypress binary
+        run: npx cypress install
 
       - name: Install http-server globally
         run: npm install -g http-server
@@ -28,6 +31,14 @@ jobs:
       - name: Start http-server in background
         run: |
           nohup http-server . -p 3000 &
+
+      - name: Cache Cypress binary
+        uses: actions/cache@v3
+        with:
+          path: ~/.cache/Cypress
+          key: ${{ runner.os }}-cypress-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-cypress-
 
       - name: Cache node_modules
         uses: actions/cache@v3
@@ -42,4 +53,4 @@ jobs:
         run: |
           npm run serve &
           sleep 5
-          npx cypress run --config baseUrl=http://127.0.0.1:3000
+          npx cypress run --config baseUrl=http://localhost:3000
