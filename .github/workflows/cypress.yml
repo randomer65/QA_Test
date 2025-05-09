@@ -48,9 +48,15 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node-
 
-
       - name: Run Cypress tests
         run: |
           npm run serve &
           sleep 10
           npx cypress run --config baseUrl=http://localhost:3000
+
+      - name: Upload Cypress screenshots
+        if: always()  # ensures upload even if tests fail
+        uses: actions/upload-artifact@v4
+        with:
+          name: cypress-screenshots
+          path: cypress/screenshots
