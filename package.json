@@ -1,12 +1,25 @@
 {
-    "name": "mini-project",
-    "version": "1.0.0",
-    "devDependencies": {
-      "http-server": "^14.1.1"
-    },
-    "scripts": {
-      "build": "build",
-      "serve": "http-server .out -p 3000",
-      "cy:run": "npm run serve & npx cypress run --config baseUrl=http://127.0.0.1:3000"
-    }
-  }
+  "name": "mini-project",
+  "version": "1.0.0",
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  },
+  "scripts": {
+    "build": "build",
+    "serve": "http-server .out -p 3000",
+    "cy:run": "npm run serve & npx cypress run --config baseUrl=http://127.0.0.1:3000"
+  },
+  "description": "This is a counter that should only display positive numbers, it should increment and decrement when pressed accordingly",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/randomer65/QA_Test.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/randomer65/QA_Test/issues"
+  },
+  "homepage": "https://github.com/randomer65/QA_Test#readme"
+}
