@@ -22,6 +22,13 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      - name: Install http-server globally
+        run: npm install -g http-server
+
+      - name: Start http-server in background
+        run: |
+          nohup http-server . -p 3000 &
+
       - name: Cache node_modules
         uses: actions/cache@v3
         with:
@@ -30,8 +37,6 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node-
 
-      - name: Build app
-        run: npm run build 
 
       - name: Run Cypress tests
         run: |
