@@ -3,10 +3,10 @@
     "version": "1.0.0",
     "devDependencies": {
       "http-server": "^14.1.1"
-    }
+    },
     "scripts": {
       "build": "build",
       "serve": "http-server .out -p 3000",
       "cy:run": npm run serve & npx cypress run --config baseUrl=http://127.0.0.1:3000"
-      }
+    }
   }
