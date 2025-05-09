@@ -30,7 +30,7 @@ jobs:
 
       - name: Start http-server in background
         run: |
-          nohup http-server . -p 3000 &
+          nohup http-server . -p 3000 - a 127.0.0.1 &
 
       - name: Cache Cypress binary
         uses: actions/cache@v3
@@ -52,5 +52,5 @@ jobs:
       - name: Run Cypress tests
         run: |
           npm run serve &
-          sleep 5
+          sleep 10
           npx cypress run --config baseUrl=http://localhost:3000
