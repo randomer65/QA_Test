@@ -29,7 +29,19 @@ describe('test spec 3', () => {
     cy.visit('http://localhost:3000/index.html');
     for (let i = 1; i < 43; i++) {
       cy.get('#increment-btn').click();
-      cy.get('#counter').should('have.value', i);
+      cy.get('#counter').should('have.text', i.toString());
     }
+  });
+});
+
+describe('test spec 4', () => {
+  it('takes a screenshot after decrement', () => {
+    cy.visit('http://localhost:3000/index.html');
+    cy.get('#decrement-btn').click();
+    cy.get('#counter').should('have.text', '0');
+    // Take a screenshot of the entire page
+    cy.screenshot('counter-after-decrement').then(() => {
+      console.log('::notice::Screenshot saved: cypress/screenshots/test.cy.js/counter-after-decrement.png');
+    });
   });
 });
