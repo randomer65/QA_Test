@@ -26,6 +26,7 @@ describe('test spec 2', () => {
 });
 describe('test spec 3', () => {
   it('clicks a button multiple times and checks counter', () => {
+    cy.visit('http://localhost:3000/index.html');
     for (let i = 1; i < 43; i++) {
       cy.get('#increment-btn').click();
       cy.get('#counter').should('have.value', i);
