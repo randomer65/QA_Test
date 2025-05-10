@@ -42,9 +42,9 @@ describe('test spec 3', () => {
     // Take a screenshot of the entire page
     cy.screenshot('counter-after-several-increments').then(() => {
       console.log('::notice::Screenshot saved: cypress/screenshots/test.cy.js/counter-after-several-increments.png');
+    });
   });
 });
-
 describe('test spec 4', () => {
   it.skip('takes a screenshot after decrement from 0', () => {
     // Skipping because it fails by showing -1 not 0
