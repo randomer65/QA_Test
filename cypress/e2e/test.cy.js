@@ -27,8 +27,8 @@ describe('test spec 1', () => {
 describe('test spec 2', () => {
   it('click Increment button multiple times and check counter', () => {
     cy.visit('http://localhost:3000/index.html');
-    for (let i = 1; i < 420; i++) {
-    // Arbitrary number - trying to keep the test duration under 30 seconds 
+    for (let i = 1; i < 400; i++) {
+    // Arbitrary value, trying to keep the test duration under 30 seconds 
       cy.get('#increment-btn').click();
       cy.get('#counter').should('have.text', i.toString());
     }
@@ -54,22 +54,22 @@ describe('test spec 3', () => {
 describe('test spec 4', () => {
   it('click Increment button multiple times and check counter', () => {
     cy.visit('http://localhost:3000/index.html');
-    for (let i = 1; i < 200; i++) {
-    // Arbitrary number - trying to keep the test duration under 30 seconds 
+    for (let i = 1; i < 201; i++) {
+    // Arbitrary value - trying to keep the test duration under 30 seconds 
       cy.get('#increment-btn').click();
       cy.get('#counter').should('have.text', i.toString());
     }
     // Take a screenshot of the entire page
-    cy.screenshot('counter-after-several-increments').then(() => {
+    cy.screenshot('counter-after-200-increments').then(() => {
       console.log('::notice::Screenshot saved: cypress/screenshots/test.cy.js/counter-after-200-increments.png');
     });
-    for (let i = 198; i > 0; i--) {
-    // Arbitrary number - trying to keep the test duration under 30 seconds 
+    for (let i = 199; i > -1; i--) {
+    // Arbitrary - trying to keep the test duration under 30 seconds 
       cy.get('#decrement-btn').click();
       cy.get('#counter').should('have.text', i.toString());
     }
     // Take a screenshot of the entire page
-    cy.screenshot('counter-after-several-increments').then(() => {
+    cy.screenshot('counter-after-200-increments-and-decrements').then(() => {
       console.log('::notice::Screenshot saved: cypress/screenshots/test.cy.js/counter-after-200-increments-and-decrements.png');
     });
   });
