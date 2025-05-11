@@ -15,3 +15,8 @@ npx cypress run
 - Several increments: Open the web page, press Increment several hundred times and check the value after each increment.
 - Single decrement: Open the web page, decrement once. This test currently fails as the counter shows -1, therefore this test is skipped. 
 - Several increments and decrements: Increment say 200 times, then decrement 200 times and check the counter values.
+ 
+## Ideas for Further Tests
+- Random walk: Increment/Decrement repeatedly at random and check the counter never shows a negative value.
+- Localization: Check the text on the buttons/counter.
+- Performance/stress test: Increment several thousand times, check time taken etc.
